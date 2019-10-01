@@ -4,7 +4,7 @@ Checkout harvest files to compare locally
 
 ### Requirements
 
-Sqlplus client install on your computer  
+Sqlplus client installed on your computer  
 harvest workbench installed on your computer
 
 ### Setup
@@ -22,7 +22,7 @@ Modify hc.sql line 37 to automatically run your compare software (Currrently con
 
 ##### hc.bat
 
-Syntax: hc filename version1 version2
+Syntax: hc filename version1 version2  
 This will checkout 2 versions of a file from harvest, rename them with an extension that matches the version and then optionally run your compare utility.
 
 For example  
@@ -35,3 +35,7 @@ This will checkout all versions of all files associated with the packagename, in
 
 For example
 hcpackage jowco-30 will checkout and create all versions with the filename format similar to hc. It also puts it in a subdirectory that is the name of the packagename passed in.
+
+### Known Issues
+
+If you receive an error showing what you node terminal is, then move the path that defines your harvest client workbench after the path that defines nodejs.
