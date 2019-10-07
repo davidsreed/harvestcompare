@@ -9,8 +9,8 @@ harvest workbench installed on your computer
 
 ### Setup
 
-Create database.txt file with 1 line like user/password@database
-Create harvestuser.txt file with 1 line containing harvest username
+Create database.txt file with 1 line like user/password@database  
+Create harvestuser.txt file with 1 line containing harvest username  
 Create harvestpass.txt file with 1 line containing harvest password
 
 ### Optional Setup
