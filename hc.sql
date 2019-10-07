@@ -4,7 +4,7 @@ set trimspool on
 set feedback off
 set verify off
 spool temp.bat
-select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform Dev and Create Spec" -b "harvest2" -en "' || e.environmentname ||  '" -usr user -pw password -br -vn ' || v.mappedversion
+select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform Dev and Create Spec" -b "harvest2" -en "' || e.environmentname ||  '" -usr &4 -pw &5 -br -vn ' || v.mappedversion
   from haritems@harrep_harvest i,
        harversions@harrep_harvest v,
        harpackage@harrep_harvest p,
@@ -19,7 +19,7 @@ select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform D
    and lower(itemname) = '&1'
    and v.mappedversion = '&2';
 select 'rename &1 &1..&2' from dual;
-select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform Dev and Create Spec" -b "harvest2" -en "' || e.environmentname ||  '" -usr user -pw password -br -vn ' || v.mappedversion
+select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform Dev and Create Spec" -b "harvest2" -en "' || e.environmentname ||  '" -usr &4 -pw &5 -br -vn ' || v.mappedversion
   from haritems@harrep_harvest i,
        harversions@harrep_harvest v,
        harpackage@harrep_harvest p,

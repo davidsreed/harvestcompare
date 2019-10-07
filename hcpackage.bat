@@ -1,6 +1,9 @@
 echo ----------------------------------------------------------
 echo example:
-echo hcpackage jowco-30
+echo hc jowco-30
 echo ----------------------------------------------------------
-sqlplus utility/password@samsdev_Samsd @hcpackage %1
+set /p database=<database.txt
+set /p harvestuser=<harvestuser.txt
+set /p harvestpass=<harvestpass.txt
+sqlplus %database% @hcpackage %1 %harvestuser% %harvestpass%
 call temp
