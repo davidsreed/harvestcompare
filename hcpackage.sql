@@ -41,7 +41,7 @@ select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform D
    and lower(p.packagename) like lower('&1%')
  group by i.itemname, pfn.pathfullname, e.environmentname;
 */
-select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform Dev and Create Spec" -b "harvest2" -en "' || e.environmentname ||  '" -usr &2 -pw &3 -br -vn ' || v.mappedversion || chr(13) || chr(10) ||
+select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform Dev and Create Spec" -b "harvest2" -en "' || e.environmentname ||  '" -usr &2 -pw &3 -tb -br -vn ' || v.mappedversion || chr(13) || chr(10) ||
        'rename ' || i.itemname || ' ' || i.itemname || '.' || v.mappedversion
   from haritems@harrep_harvest i,
        harversions@harrep_harvest v,
@@ -59,6 +59,7 @@ select 'hco ' || i.itemname || ' -vp "' || pfn.pathfullname || '" -st "Perform D
                                 harversions@harrep_harvest v2
                           where i2.itemobjid = v2.itemobjid
                             and i2.itemobjid = i.itemobjid
+                            and v2.inbranch = 0
                             and v2.modifiedtime < (select min(v3.modifiedtime)
                                                      from haritems@harrep_harvest i3,
                                                           harversions@harrep_harvest v3,
